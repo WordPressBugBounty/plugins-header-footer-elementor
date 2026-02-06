@@ -59,7 +59,8 @@ class HFE_Settings_Page {
 		
 		add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_admin_scripts' ] );
 		add_filter( 'plugin_action_links_' . HFE_PATH, [ $this, 'settings_link' ] );
-		add_filter( 'plugin_action_links_' . HFE_PATH, [ $this, 'upgrade_pro_link' ] );		
+		add_filter( 'plugin_action_links_' . HFE_PATH, [ $this, 'upgrade_pro_link' ] );
+		add_filter( 'plugin_row_meta', [ $this, 'add_rating_meta_links' ], 10, 2 );		
 
 		if ( version_compare( get_bloginfo( 'version' ), '5.1.0', '>=' ) ) {
 			add_filter( 'wp_check_filetype_and_ext', [ $this, 'real_mime_types_5_1_0' ], 10, 5 );
@@ -92,9 +93,30 @@ class HFE_Settings_Page {
 	public function upgrade_pro_link( $links ) {
 		$plugin_file = 'ultimate-elementor/ultimate-elementor.php';
 		if ( ! file_exists( WP_PLUGIN_DIR . '/' . $plugin_file ) && ! HFE_Helper::is_pro_active() ) {
-			$links[]     = '<a href="' . esc_url( 'https://ultimateelementor.com/pricing/?utm_source=wp-admin&utm_medium=plugin-list&utm_campaign=uae-upgrade' ) . '" target="_blank" rel="noreferrer" class="uae-plugins-go-pro">' . esc_html__( 'Get UAE Pro', 'header-footer-elementor' ) . '</a>';
+			$links[]     = '<a href="' . esc_url( 'https://ultimateelementor.com/pricing/?utm_source=wp-admin&utm_medium=plugin-list&utm_campaign=uae-upgrade' ) . '" target="_blank" rel="noreferrer" class="uae-plugins-go-pro">' . esc_html__( 'Go Pro', 'header-footer-elementor' ) . '</a>';
 		}
 
+		return $links;
+	}
+
+	/**
+	 * Add meta links to the plugin row (under description).
+	 *
+	 * @param array<int,string> $links Array of plugin meta links.
+	 * @param string            $file Plugin file path.
+	 * @return array<int,string> Modified plugin meta links.
+	 * @since 2.5.2
+	 */
+	public function add_rating_meta_links( array $links, string $file ): array {
+		if ( HFE_PATH === $file ) {
+			$stars = str_repeat( '<span class="dashicons dashicons-star-filled hfe-rating-star" aria-hidden="true"></span>', 5 );
+			$links[] = sprintf(
+				'<a href="%s" target="_blank" rel="noopener noreferrer" aria-label="%s" role="button">%s</a>',
+				esc_url( 'https://wordpress.org/support/plugin/header-footer-elementor/reviews/#new-post' ),
+				esc_attr__( 'Rate our plugin', 'header-footer-elementor' ),
+				$stars
+			);
+		}
 		return $links;
 	}
 
@@ -338,7 +360,7 @@ class HFE_Settings_Page {
 			$siteurl    = $this->fetch_site_url();
 			$show_theme_support = 'no';
 			$hfe_theme_status   = get_option( 'hfe_is_theme_supported', false );
-			$analytics_status   = get_option( 'uae_analytics_optin', false );
+			$analytics_status   = get_option( 'uae_usage_optin', false );
 	
 			if ( ( ! current_theme_supports( 'header-footer-elementor' ) ) && ! $hfe_theme_status ) {
 				$show_theme_support = 'yes';
@@ -377,8 +399,10 @@ class HFE_Settings_Page {
 					'theme_url'                => HFE_URL . 'assets/images/settings/layout-template.svg',
 					'version_url'              => HFE_URL . 'assets/images/settings/version.svg',
 					'version__selected_url'    => HFE_URL . 'assets/images/settings/git-compare.svg',
-					'tracking_url'              => HFE_URL . 'assets/images/settings/tracking.svg',
-					'tracking__selected_url'    => HFE_URL . 'assets/images/settings/tracking_selected.svg',
+					'tracking_url'             => HFE_URL . 'assets/images/settings/tracking.svg',
+					'tracking__selected_url'   => HFE_URL . 'assets/images/settings/tracking_selected.svg',
+					'branding_url'             => HFE_URL . 'assets/images/settings/branding.svg',
+					'branding__selected_url'   => HFE_URL . 'assets/images/settings/branding-selected.svg',
 					'user_url'                 => HFE_URL . 'assets/images/settings/user.svg',
 					'user__selected_url'       => HFE_URL . 'assets/images/settings/user-selected.svg',
 					'integrations_url'         => HFE_URL . 'assets/images/settings/integrations.svg', // Update the path to your assets folder.
