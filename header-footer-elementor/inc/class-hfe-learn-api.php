@@ -921,6 +921,34 @@ class HFE_Learn_API extends WP_REST_Controller {
         // Save to user meta.
         update_user_meta( $user_id, 'hfe_learn_progress', $saved_progress );
 
+        // Track event when ALL learn chapters are fully completed.
+        if ( (bool) $completed && class_exists( '\HFE_Analytics_Events' )
+            && ! \HFE_Analytics_Events::is_tracked( 'learn_completed' )
+        ) {
+            $chapters     = self::get_chapters_structure();
+            $all_complete = true;
+
+            foreach ( $chapters as $chapter ) {
+                if ( empty( $chapter['steps'] ) || ! is_array( $chapter['steps'] ) ) {
+                    continue;
+                }
+                if ( empty( $saved_progress[ $chapter['id'] ] ) || ! is_array( $saved_progress[ $chapter['id'] ] ) ) {
+                    $all_complete = false;
+                    break;
+                }
+                foreach ( $chapter['steps'] as $step ) {
+                    if ( empty( $saved_progress[ $chapter['id'] ][ $step['id'] ] ) ) {
+                        $all_complete = false;
+                        break 2;
+                    }
+                }
+            }
+
+            if ( $all_complete ) {
+                \HFE_Analytics_Events::track( 'learn_completed' );
+            }
+        }
+
         return new WP_REST_Response(
             array(
                 'success' => true,

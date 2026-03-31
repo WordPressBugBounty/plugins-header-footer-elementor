@@ -32,6 +32,12 @@ if ( ! class_exists( 'HFE_Analytics' ) ) {
 		 */
 		public function __construct() {
 			add_action( 'admin_init', [ $this, 'maybe_migrate_analytics_tracking' ] );
+
+			// Load analytics events class.
+			if ( ! class_exists( 'HFE_Analytics_Events' ) ) {
+				require_once HFE_DIR . 'inc/class-hfe-analytics-events.php';
+			}
+
 			// BSF Analytics Tracker.
 			if ( ! class_exists( 'BSF_Analytics_Loader' ) ) {
 				require_once HFE_DIR . 'admin/bsf-analytics/class-bsf-analytics-loader.php';
@@ -64,6 +70,12 @@ if ( ! class_exists( 'HFE_Analytics' ) ) {
 			);
 			
 			add_filter( 'bsf_core_stats', [ $this, 'add_uae_analytics_data' ] );
+
+			// Event tracking hooks.
+			add_action( 'transition_post_status', [ $this, 'track_first_template_published' ], 10, 3 );
+
+			// Detect state-based events on admin load (dedup prevents repeat tracking).
+			$this->detect_state_events();
 		}
 
 		/**
@@ -108,7 +120,9 @@ if ( ! class_exists( 'HFE_Analytics' ) ) {
                 'elementor_version' => ( defined( 'ELEMENTOR_VERSION' ) ? ELEMENTOR_VERSION : '' ),
                 'elementor_pro_version' => ( defined( 'ELEMENTOR_PRO_VERSION' ) ? ELEMENTOR_PRO_VERSION : '' ),
                 'onboarding_triggered' => ( 'yes' === get_option( 'hfe_onboarding_triggered' ) ) ? 'yes' : 'no',
-				'uaelite_subscription' => ( 'done' === get_option( 'uaelite_subscription' ) ) ? 'yes' : 'no'
+				'uaelite_subscription' => ( 'done' === get_option( 'uaelite_subscription' ) ) ? 'yes' : 'no',
+				'active_theme'         => get_template(),
+				'is_theme_supported'   => (bool) get_option( 'hfe_is_theme_supported', false ),
             ];
 
             $hfe_posts = get_posts( 
@@ -139,8 +153,53 @@ if ( ! class_exists( 'HFE_Analytics' ) ) {
 				$stats_data['plugin_data']['uae']['kpi_records'] = $kpi_data;
 			}
 
+			// Flush pending events into payload (only if any exist).
+			$pending_events = HFE_Analytics_Events::flush_pending();
+			if ( ! empty( $pending_events ) ) {
+				$stats_data['plugin_data']['uae']['events_record'] = $pending_events;
+			}
+
             return $stats_data;
         }
+
+		/**
+		 * Track first time a template is published.
+		 *
+		 * @param string   $new_status New post status.
+		 * @param string   $old_status Old post status.
+		 * @param \WP_Post $post       Post object.
+		 * @since 2.8.6
+		 * @return void
+		 */
+		public function track_first_template_published( $new_status, $old_status, $post ) {
+			if ( 'publish' !== $new_status || 'publish' === $old_status || 'elementor-hf' !== $post->post_type ) {
+				return;
+			}
+
+			$template_type = get_post_meta( $post->ID, 'ehf_template_type', true );
+
+			HFE_Analytics_Events::track(
+				'first_template_published',
+				(string) $post->ID,
+				[
+					'template_type' => ! empty( $template_type ) ? $template_type : 'unknown',
+				]
+			);
+		}
+
+		/**
+		 * Detect state-based events that can't use direct hooks.
+		 * Uses dedup in HFE_Analytics_Events::track() — safe to call repeatedly.
+		 *
+		 * @since 2.8.6
+		 * @return void
+		 */
+		private function detect_state_events() {
+			// onboarding_completed: detect completed state.
+			if ( 'yes' === get_option( 'hfe_onboarding_triggered' ) ) {
+				HFE_Analytics_Events::track( 'onboarding_completed' );
+			}
+		}
 
 		/**
 		 * Fetch Elementor data.

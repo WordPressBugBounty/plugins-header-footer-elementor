@@ -2,10 +2,10 @@
 # This file is distributed under the same license as the Ultimate Addons for Elementor (UAE) package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Ultimate Addons for Elementor (UAE) 2.8.5\n"
+"Project-Id-Version: Ultimate Addons for Elementor (UAE) 2.8.6\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/header-footer-elementor\n"
-"POT-Creation-Date: 2026-03-10 08:32:52+00:00\n"
+"POT-Creation-Date: 2026-03-31 01:11:59+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -192,8 +192,8 @@ msgstr ""
 #: admin/class-hfe-addons-actions.php:385
 #: admin/class-hfe-addons-actions.php:422
 #: admin/class-hfe-addons-actions.php:551
-#: admin/class-hfe-addons-actions.php:585
-#: admin/class-hfe-addons-actions.php:622
+#: admin/class-hfe-addons-actions.php:590
+#: admin/class-hfe-addons-actions.php:627
 msgid "You do not have permission to perform this action."
 msgstr ""
 
@@ -230,214 +230,214 @@ msgstr ""
 msgid "Invalid compatibility option value."
 msgstr ""
 
-#: admin/class-hfe-addons-actions.php:566
-#: admin/class-hfe-addons-actions.php:600
+#: admin/class-hfe-addons-actions.php:571
+#: admin/class-hfe-addons-actions.php:605
 msgid "Settings saved successfully!"
 msgstr ""
 
-#: admin/class-hfe-addons-actions.php:569
-#: admin/class-hfe-addons-actions.php:603
+#: admin/class-hfe-addons-actions.php:574
+#: admin/class-hfe-addons-actions.php:608
 msgid "Unable to save settings."
 msgstr ""
 
-#: admin/class-hfe-addons-actions.php:594
+#: admin/class-hfe-addons-actions.php:599
 msgid "Invalid analytics option value."
 msgstr ""
 
-#: admin/class-hfe-addons-actions.php:616
+#: admin/class-hfe-addons-actions.php:621
 msgid "Security check failed."
 msgstr ""
 
-#: admin/class-hfe-addons-actions.php:628
+#: admin/class-hfe-addons-actions.php:633
 msgid "Upgrade notice dismissed."
 msgstr ""
 
-#: admin/class-hfe-admin.php:107
+#: admin/class-hfe-admin.php:108
 msgid "Header Footer Builder"
 msgstr ""
 
-#: admin/class-hfe-admin.php:357
+#: admin/class-hfe-admin.php:358
 msgid "Important Notice:"
 msgstr ""
 
-#: admin/class-hfe-admin.php:361
+#: admin/class-hfe-admin.php:362
 msgid "Can't edit your header or footer?"
 msgstr ""
 
-#: admin/class-hfe-admin.php:362
+#: admin/class-hfe-admin.php:363
 msgid ""
 "Try clearing your cache or resetting permalinks (Settings > Permalinks > "
 "Save Changes)."
 msgstr ""
 
-#: admin/class-hfe-admin.php:363
+#: admin/class-hfe-admin.php:364
 msgid "Learn More"
 msgstr ""
 
-#: admin/class-hfe-admin.php:367
+#: admin/class-hfe-admin.php:368
 msgid "Flush Permalink"
 msgstr ""
 
-#: admin/class-hfe-admin.php:440 admin/class-hfe-admin.php:728
+#: admin/class-hfe-admin.php:441 admin/class-hfe-admin.php:729
 msgid "Display Rules"
 msgstr ""
 
-#: admin/class-hfe-admin.php:441
+#: admin/class-hfe-admin.php:442
 #: inc/widgets-manager/widgets/basic-posts/basic-posts.php:164
 #: inc/widgets-manager/widgets/post-info/post-info.php:170
 #: inc/widgets-manager/widgets/woo-product-grid/woo-product-grid.php:375
 msgid "Date"
 msgstr ""
 
-#: admin/class-hfe-admin.php:531 admin/class-hfe-admin.php:532
-#: admin/class-hfe-admin.php:533 admin/class-hfe-admin.php:534
+#: admin/class-hfe-admin.php:532 admin/class-hfe-admin.php:533
+#: admin/class-hfe-admin.php:534 admin/class-hfe-admin.php:535
 msgid "Elementor Header & Footer Builder"
 msgstr ""
 
-#: admin/class-hfe-admin.php:535 admin/class-hfe-admin.php:536
+#: admin/class-hfe-admin.php:536 admin/class-hfe-admin.php:537
 msgid "Add New"
 msgstr ""
 
-#: admin/class-hfe-admin.php:537
+#: admin/class-hfe-admin.php:538
 msgid "New Template"
 msgstr ""
 
-#: admin/class-hfe-admin.php:538
+#: admin/class-hfe-admin.php:539
 msgid "Edit Template"
 msgstr ""
 
-#: admin/class-hfe-admin.php:539
+#: admin/class-hfe-admin.php:540
 msgid "View Template"
 msgstr ""
 
-#: admin/class-hfe-admin.php:540 inc/class-hfe-settings-page.php:484
+#: admin/class-hfe-admin.php:541 inc/class-hfe-settings-page.php:484
 msgid "View All"
 msgstr ""
 
-#: admin/class-hfe-admin.php:541
+#: admin/class-hfe-admin.php:542
 msgid "Search Templates"
 msgstr ""
 
-#: admin/class-hfe-admin.php:542
+#: admin/class-hfe-admin.php:543
 msgid "Parent Templates:"
 msgstr ""
 
-#: admin/class-hfe-admin.php:543
+#: admin/class-hfe-admin.php:544
 msgid "No Templates found."
 msgstr ""
 
-#: admin/class-hfe-admin.php:544
+#: admin/class-hfe-admin.php:545
 msgid "No Templates found in Trash."
 msgstr ""
 
-#: admin/class-hfe-admin.php:592 admin/class-hfe-admin.php:593
+#: admin/class-hfe-admin.php:593 admin/class-hfe-admin.php:594
 msgid "Create New"
 msgstr ""
 
-#: admin/class-hfe-admin.php:602
+#: admin/class-hfe-admin.php:603
 msgid "Header/Footer Builder"
 msgstr ""
 
-#: admin/class-hfe-admin.php:603
+#: admin/class-hfe-admin.php:604
 msgid "Header & Footer"
 msgstr ""
 
-#: admin/class-hfe-admin.php:632
+#: admin/class-hfe-admin.php:633
 msgid "Elementor Header & Footer Builder Options"
 msgstr ""
 
-#: admin/class-hfe-admin.php:661
+#: admin/class-hfe-admin.php:662
 msgid "Type of Template"
 msgstr ""
 
-#: admin/class-hfe-admin.php:665
+#: admin/class-hfe-admin.php:666
 msgid "Select Option"
 msgstr ""
 
-#: admin/class-hfe-admin.php:666
+#: admin/class-hfe-admin.php:667
 msgid "Header"
 msgstr ""
 
-#: admin/class-hfe-admin.php:667
+#: admin/class-hfe-admin.php:668
 msgid "Before Footer"
 msgstr ""
 
-#: admin/class-hfe-admin.php:668
+#: admin/class-hfe-admin.php:669
 msgid "Footer"
 msgstr ""
 
-#: admin/class-hfe-admin.php:669
+#: admin/class-hfe-admin.php:670
 msgid "Custom Block"
 msgstr ""
 
-#: admin/class-hfe-admin.php:677 admin/class-hfe-admin.php:927
+#: admin/class-hfe-admin.php:678 admin/class-hfe-admin.php:928
 msgid "Shortcode"
 msgstr ""
 
-#: admin/class-hfe-admin.php:678
+#: admin/class-hfe-admin.php:679
 msgid ""
 "Copy this shortcode and paste it into your post, page, or text widget "
 "content."
 msgstr ""
 
-#: admin/class-hfe-admin.php:690
+#: admin/class-hfe-admin.php:691
 msgid "Enable Layout for Elementor Canvas Template?"
 msgstr ""
 
-#: admin/class-hfe-admin.php:692
+#: admin/class-hfe-admin.php:693
 msgid ""
 "Enabling this option will display this layout on pages using Elementor "
 "Canvas Template."
 msgstr ""
 
-#: admin/class-hfe-admin.php:719
+#: admin/class-hfe-admin.php:720
 #: inc/widgets-manager/extensions/class-reading-progress-bar-settings.php:125
 msgid "Display On"
 msgstr ""
 
-#: admin/class-hfe-admin.php:721
+#: admin/class-hfe-admin.php:722
 msgid "Add locations for where this template should appear."
 msgstr ""
 
-#: admin/class-hfe-admin.php:732
+#: admin/class-hfe-admin.php:733
 msgid "Add Display Rule"
 msgstr ""
 
-#: admin/class-hfe-admin.php:741
+#: admin/class-hfe-admin.php:742
 msgid "Do Not Display On"
 msgstr ""
 
-#: admin/class-hfe-admin.php:743
+#: admin/class-hfe-admin.php:744
 msgid "Add locations for where this template should not appear."
 msgstr ""
 
-#: admin/class-hfe-admin.php:750
+#: admin/class-hfe-admin.php:751
 msgid "Exclude On"
 msgstr ""
 
-#: admin/class-hfe-admin.php:753
+#: admin/class-hfe-admin.php:754
 #: inc/lib/target-rule/class-astra-target-rules-fields.php:851
 msgid "Add Exclusion Rule"
 msgstr ""
 
-#: admin/class-hfe-admin.php:763
+#: admin/class-hfe-admin.php:764
 msgid "User Roles"
 msgstr ""
 
-#: admin/class-hfe-admin.php:764
+#: admin/class-hfe-admin.php:765
 msgid "Display custom template based on user role."
 msgstr ""
 
-#: admin/class-hfe-admin.php:771
+#: admin/class-hfe-admin.php:772
 #: inc/widgets-manager/widgets/counter/counter.php:151
 msgid "Users"
 msgstr ""
 
-#: admin/class-hfe-admin.php:774
+#: admin/class-hfe-admin.php:775
 msgid "Add User Rule"
 msgstr ""
 
-#: admin/class-hfe-admin.php:855
+#: admin/class-hfe-admin.php:856
 #. Translators: Post title, Template Location
 msgid "Template %1$s is already assigned to the location %2$s"
 msgstr ""
@@ -740,11 +740,11 @@ msgstr ""
 msgid "Upgrade to Pro"
 msgstr ""
 
-#: inc/class-hfe-learn-api.php:927
+#: inc/class-hfe-learn-api.php:955
 msgid "Progress saved successfully."
 msgstr ""
 
-#: inc/class-hfe-learn-api.php:946
+#: inc/class-hfe-learn-api.php:974
 msgid "Sorry, you cannot access this resource."
 msgstr ""
 

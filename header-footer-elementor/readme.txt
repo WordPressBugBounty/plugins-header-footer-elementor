@@ -4,7 +4,7 @@ Tags: elementor, elementor addons, elementor widgets, elementor template, header
 Requires at least: 5.0  
 Tested up to: 6.9
 Requires PHP: 7.4  
-Stable tag: 2.8.5
+Stable tag: 2.8.6
 License: GPLv2 or later  
 License URI: https://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -310,6 +310,11 @@ You can report the issue through our [Bug Bounty Program](https://brainstormforc
 ---
 
 == Changelog ==
+= 2.8.6 =
+- Improvement: Compatibility with latest Elementor and Elementor Pro 4.0 version.
+- Improvement: Updated Internal libraries to improve stability and compatibility.
+- Fix: UAE icon in Elementor editor redirected to incorrect URL on staging and subdirectory WordPress installations.
+
 = 2.8.5 =
 - Improvement: Strengthened plugin security and updated required package dependencies.
 

@@ -562,6 +562,11 @@ if ( ! class_exists( 'HFE_Addons_Actions' ) ) {
 
 				update_option( 'hfe_compatibility_option', $option );
 
+				// Track theme compatibility change event.
+				if ( class_exists( 'HFE_Analytics_Events' ) ) {
+					HFE_Analytics_Events::track( 'theme_compat_changed', $option );
+				}
+
 				// Return a success response.
 				wp_send_json_success( esc_html__( 'Settings saved successfully!', 'header-footer-elementor' ) );
 			} else {
