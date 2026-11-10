@@ -4,7 +4,7 @@ Tags: elementor, elementor addons, elementor widgets, elementor templates, heade
 Requires at least: 5.0
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.9.6
+Stable tag: 2.9.7
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -353,6 +353,9 @@ You can report the issue through our [Bug Bounty Program](https://brainstormforc
 ---
 
 == Changelog ==
+= 2.9.7 =
+- Improvement: Compatibility with latest Elementor and Elementor Pro 4.4 version.
+
 = 2.9.6 =
 - Fix: Security - Hardened widget output in the Elementor editor preview.
 - Fix: Scroll to Top - Custom SVG icons selected via the Icon media type now render correctly instead of showing an empty button, and the Size and Color controls apply to them.
