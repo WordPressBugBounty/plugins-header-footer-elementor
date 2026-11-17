@@ -4,7 +4,7 @@ Tags: elementor, elementor addons, elementor widgets, elementor templates, heade
 Requires at least: 5.0
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.9.7
+Stable tag: 2.9.8
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -353,6 +353,11 @@ You can report the issue through our [Bug Bounty Program](https://brainstormforc
 ---
 
 == Changelog ==
+= 2.9.8 =
+- Fix: Nav Menu - A horizontal menu inside a Flexbox container row now shrinks with the row when the browser window is resized, instead of keeping its earlier width and running off the page until reload.
+- Fix: Header - On Hello Elementor and themes using the default compatibility method, the page no longer outputs a second copy of the page opening below the header, so site notices and tracking codes added after the opening body tag no longer appear twice.
+- Fix: WPML - Pages in a language whose header or footer template is not translated yet now show the original-language template instead of no header or footer.
+
 = 2.9.7 =
 - Improvement: Compatibility with latest Elementor and Elementor Pro 4.4 version.
 
